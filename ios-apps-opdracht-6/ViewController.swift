@@ -2,7 +2,6 @@
 //  ViewController.swift
 //  ios-apps-opdracht-6
 //
-//  Created by student on 28/11/2018.
 //  Copyright © 2018 VIVES. All rights reserved.
 //
 

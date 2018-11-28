@@ -14,6 +14,7 @@
 		3F01A43F21AE816D00EA3170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F01A43E21AE816D00EA3170 /* Assets.xcassets */; };
 		3F01A44221AE816D00EA3170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F01A44021AE816D00EA3170 /* LaunchScreen.storyboard */; };
 		3FD3B0CC21AE90D700774A34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3B0CB21AE90D700774A34 /* GoogleService-Info.plist */; };
+		3FD3B0CE21AE992F00774A34 /* background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3B0CD21AE992F00774A34 /* background.jpeg */; };
 		B216B4CC7A7B6DCD130088D8 /* Pods_ios_apps_opdracht_6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		3F01A44121AE816D00EA3170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F01A44321AE816D00EA3170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD3B0CB21AE90D700774A34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3FD3B0CD21AE992F00774A34 /* background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpeg; sourceTree = "<group>"; };
 		DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_apps_opdracht_6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1290807D512FE4E6D9583A /* Pods-ios-apps-opdracht-6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-apps-opdracht-6.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-apps-opdracht-6/Pods-ios-apps-opdracht-6.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 				3F01A43621AE816B00EA3170 /* ViewController.swift */,
 				3F01A43821AE816B00EA3170 /* Main.storyboard */,
 				3F01A43E21AE816D00EA3170 /* Assets.xcassets */,
+				3FD3B0CD21AE992F00774A34 /* background.jpeg */,
 				3F01A44021AE816D00EA3170 /* LaunchScreen.storyboard */,
 				3F01A44321AE816D00EA3170 /* Info.plist */,
 				3F01A43B21AE816B00EA3170 /* ios_apps_opdracht_6.xcdatamodeld */,
@@ -158,6 +161,7 @@
 				3FD3B0CC21AE90D700774A34 /* GoogleService-Info.plist in Resources */,
 				3F01A43F21AE816D00EA3170 /* Assets.xcassets in Resources */,
 				3F01A43A21AE816B00EA3170 /* Main.storyboard in Resources */,
+				3FD3B0CE21AE992F00774A34 /* background.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
