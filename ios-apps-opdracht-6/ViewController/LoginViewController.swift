@@ -20,21 +20,22 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onTouchUpInsideButtonLogin(_ sender: Any) {
-        
         self.labelGeneralError.isHidden = true
         
-        let email = textFieldEmail.text!
-        let password = textFieldPassword.text!
-        
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            
-            if let error = error {
-                self.labelGeneralError.isHidden = false
-                self.labelGeneralError.text = error.localizedDescription
-                return
-            }
-            
-            print("---- Login Worked")
+        let loginCredentials = LoginCredentials(email: textFieldEmail.text, password: textFieldPassword.text)
+        FirebaseAuthenticationService.login(withCredentials: loginCredentials, endedDelegate: self)
+    }
+}
+
+extension LoginViewController: LoginDelegate {
+    
+    func onEnded(user: User?, error: String?) {
+        if error != nil {
+            self.labelGeneralError.isHidden = false
+            self.labelGeneralError.text = error!
+            return
         }
+        
+        print(user!.email)
     }
 }

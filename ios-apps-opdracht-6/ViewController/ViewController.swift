@@ -11,12 +11,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
+    private var embeddedViewController: UIViewController!
+    
     private lazy var loginViewController: LoginViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         var viewController = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! LoginViewController
         
-        self.addChild(viewController)
+        embeddedViewController.addChild(viewController)
         
         return viewController
     }()
@@ -26,15 +28,20 @@ class ViewController: UIViewController {
         
         var viewController = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegisterViewController
         
-        self.addChild(viewController)
+        embeddedViewController.addChild(viewController)
         
         return viewController
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        add(asChildViewController: loginViewController)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EmbedSegue" {
+            self.embeddedViewController = segue.destination
+            add(asChildViewController: loginViewController)
+        }
     }
     
     @IBAction func onValueChangedNavigation(_ sender: UISegmentedControl) {
@@ -57,16 +64,16 @@ class ViewController: UIViewController {
 
 extension ViewController {
     private func add(asChildViewController viewController: UIViewController) {
-        addChild(viewController)
+        embeddedViewController.addChild(viewController)
         containerView.addSubview(viewController.view)
-        viewController.view.frame = view.bounds
-        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        viewController.didMove(toParent: self)
+        embeddedViewController.view.frame = view.bounds
+        embeddedViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        embeddedViewController.didMove(toParent: embeddedViewController)
     }
     
     private func remove(asChildViewController viewController: UIViewController) {
-        viewController.willMove(toParent: nil)
-        viewController.view.removeFromSuperview()
-        viewController.removeFromParent()
+        embeddedViewController.willMove(toParent: nil)
+        embeddedViewController.view.removeFromSuperview()
+        embeddedViewController.removeFromParent()
     }
 }
