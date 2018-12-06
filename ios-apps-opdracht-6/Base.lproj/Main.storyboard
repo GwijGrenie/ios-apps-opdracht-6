@@ -24,14 +24,13 @@
                                     <segment title="Registreer"/>
                                 </segments>
                                 <connections>
-                                    <action selector="onValueChangedNavigation:" destination="BYZ-38-t0r" eventType="valueChanged" id="dUO-OK-YQO"/>
-                                    <action selector="segmentedControlNavigation:" destination="lcz-xl-xs2" eventType="valueChanged" id="g0V-ao-s2q"/>
+                                    <action selector="onValueChangedNavigation:" destination="BYZ-38-t0r" eventType="valueChanged" id="nmP-hC-fmh"/>
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVd-l4-bMf">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <connections>
-                                    <segue destination="JAP-Gl-Kig" kind="embed" id="Ecz-gZ-Ynf"/>
+                                    <segue destination="JAP-Gl-Kig" kind="embed" identifier="EmbedSegue" id="Ecz-gZ-Ynf"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -50,19 +49,15 @@
                     <navigationItem key="navigationItem" id="g6f-ah-coR">
                         <nil key="title"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="containerView" destination="tVd-l4-bMf" id="0nR-kq-CSM"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="lcz-xl-xs2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1252" y="26.53673163418291"/>
         </scene>
-        <!--Register View Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="cS4-hE-3HI">
             <objects>
-                <viewController storyboardIdentifier="registerViewController" id="S6H-Qk-scK" customClass="RegisterViewController" customModule="ios_apps_opdracht_6" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerViewController" id="S6H-Qk-scK" customClass="RegistrationViewController" customModule="ios_apps_opdracht_6" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jgE-5Q-p4Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,25 +69,25 @@
                                         <rect key="frame" x="32" y="16" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRJ-ze-U66">
                                         <rect key="frame" x="32" y="54" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ykh-xx-Fxx">
                                         <rect key="frame" x="32" y="92" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ox4-Z5-BSz">
                                         <rect key="frame" x="32" y="130" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWq-GX-imI">
                                         <rect key="frame" x="32" y="192" width="311" height="21"/>
@@ -115,6 +110,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3Q-2X-1jx">
                                         <rect key="frame" x="32" y="445" width="311" height="30"/>
                                         <state key="normal" title="Register"/>
+                                        <connections>
+                                            <action selector="onTouchUpInsideRegister:" destination="S6H-Qk-scK" eventType="touchUpInside" id="xfe-OW-nuk"/>
+                                        </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Njk-l8-LRd">
                                         <rect key="frame" x="32" y="483" width="311" height="20.5"/>
@@ -161,6 +159,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="flv-Ai-SQ0"/>
                     </view>
+                    <connections>
+                        <outlet property="datePickerBirthday" destination="Nav-Mo-NU2" id="p8a-QW-Ucv"/>
+                        <outlet property="labelGeneralError" destination="Njk-l8-LRd" id="QK7-xP-g4u"/>
+                        <outlet property="textFieldEmail" destination="kRJ-ze-U66" id="1Xm-Xc-PpR"/>
+                        <outlet property="textFieldName" destination="QwZ-HH-svM" id="35I-nY-oPk"/>
+                        <outlet property="textFieldPassword" destination="Ykh-xx-Fxx" id="UBq-WI-rom"/>
+                        <outlet property="textFieldRepeatPassword" destination="ox4-Z5-BSz" id="5hb-H7-2u9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4YG-LQ-RoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,13 +205,13 @@
                                         <rect key="frame" x="32" y="16" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bwf-QM-YHm">
                                         <rect key="frame" x="32" y="62" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-09-hJH">
                                         <rect key="frame" x="32" y="108" width="311" height="30"/>
@@ -239,11 +245,13 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="F3s-P4-1KJ" firstAttribute="width" secondItem="G30-Ni-Les" secondAttribute="width" id="0MV-IT-vNg"/>
                             <constraint firstItem="F3s-P4-1KJ" firstAttribute="centerY" secondItem="G30-Ni-Les" secondAttribute="centerY" id="LPD-i7-cRr"/>
                             <constraint firstItem="F3s-P4-1KJ" firstAttribute="centerX" secondItem="G30-Ni-Les" secondAttribute="centerX" id="cos-Cu-njT"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="OWb-xl-kbw"/>
                     </view>
                     <connections>
                         <outlet property="labelGeneralError" destination="KAt-yC-xJS" id="Ndb-3H-rOb"/>
@@ -263,6 +271,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HYy-F3-vFn"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEI-8P-zsK" userLabel="First Responder" sceneMemberID="firstResponder"/>

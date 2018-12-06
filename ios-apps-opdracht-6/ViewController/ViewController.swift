@@ -9,27 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var containerView: UIView!
-    
     private var embeddedViewController: UIViewController!
     
     private lazy var loginViewController: LoginViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
         var viewController = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! LoginViewController
-        
         embeddedViewController.addChild(viewController)
-        
         return viewController
     }()
     
-    private lazy var registerViewController: RegisterViewController = {
+    private lazy var registerViewController: RegistrationViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        var viewController = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegisterViewController
-        
+        var viewController = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegistrationViewController
         embeddedViewController.addChild(viewController)
-        
         return viewController
     }()
     
@@ -47,10 +39,12 @@ class ViewController: UIViewController {
     @IBAction func onValueChangedNavigation(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
+            print("Login")
             remove(asChildViewController: registerViewController)
             add(asChildViewController: loginViewController)
             break
         case 1:
+            print("Register")
             remove(asChildViewController: loginViewController)
             add(asChildViewController: registerViewController)
             break
@@ -65,15 +59,16 @@ class ViewController: UIViewController {
 extension ViewController {
     private func add(asChildViewController viewController: UIViewController) {
         embeddedViewController.addChild(viewController)
-        containerView.addSubview(viewController.view)
-        embeddedViewController.view.frame = view.bounds
-        embeddedViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        embeddedViewController.didMove(toParent: embeddedViewController)
+        embeddedViewController.view.addSubview(viewController.view)
+        viewController.view.frame = embeddedViewController.view.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewController.didMove(toParent: embeddedViewController)
     }
     
     private func remove(asChildViewController viewController: UIViewController) {
-        embeddedViewController.willMove(toParent: nil)
-        embeddedViewController.view.removeFromSuperview()
-        embeddedViewController.removeFromParent()
+        
+        viewController.willMove(toParent: nil)
+        viewController.view.removeFromSuperview()
+        viewController.removeFromParent()
     }
 }

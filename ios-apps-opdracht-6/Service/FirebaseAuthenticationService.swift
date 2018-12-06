@@ -18,16 +18,18 @@ struct RegistrationCredentials {
     let email: String?
     let password: String?
     let repeatPassword: String?
-    let birthDate: Date?
+    let birthDate: Date
 }
 
 class FirebaseAuthenticationService {
     
-    private init() {}
-    
     typealias ValidationResult = (isValid: Bool, error: String?)
     
-    static func login(withCredentials loginCredentials: LoginCredentials, endedDelegate delegate: LoginDelegate?) {
+    private lazy var memberDAO: MemberDAO = MemberDAO()
+    
+    init() {}
+    
+    func login(withCredentials loginCredentials: LoginCredentials, endedDelegate delegate: LoginDelegate?) {
         let validationResult: ValidationResult = validateLoginCredentials(loginCredentials)
         
         if !validationResult.isValid {
@@ -47,17 +49,31 @@ class FirebaseAuthenticationService {
         
     }
     
-    static func register(withCredentials registrationCredentials: RegistrationCredentials, endedDelegate delegate: RegistrationDelegate?) {
+    func register(withCredentials registrationCredentials: RegistrationCredentials, endedDelegate delegate: RegistrationDelegate?) {
         let validationResult: ValidationResult = validateRegistrationCredentials(registrationCredentials)
         if !validationResult.isValid {
             delegate?.onEnded(user: nil, error: validationResult.error!)
             return
         }
         
-        // TODO: Call Firebase API to register user
+        Auth.auth().createUser(withEmail: registrationCredentials.email!, password: registrationCredentials.password!) { (authenticationDataResult, error) in
+            
+            if error != nil {
+                delegate?.onEnded(user: nil, error: error!.localizedDescription)
+                return
+            }
+            
+            let user = authenticationDataResult!.user
+            
+            let member = Member(id: String(), name: registrationCredentials.name!, birthday: registrationCredentials.birthDate, uid: user.uid)
+            self.memberDAO.create(member, onFinished: {error in
+                print("Error adding extra credentials " + error!)
+                delegate?.onEnded(user: authenticationDataResult?.user, error: nil)
+            })
+        }
     }
     
-    private static func validateLoginCredentials(_ loginCredentials: LoginCredentials) -> ValidationResult {
+    private func validateLoginCredentials(_ loginCredentials: LoginCredentials) -> ValidationResult {
         let emailValidationResult = ValidationHelper.validateRequiredText(loginCredentials.email, withLabel: "email")
         if !emailValidationResult.isValid {
             return (false, emailValidationResult.error!)
@@ -71,7 +87,7 @@ class FirebaseAuthenticationService {
         return (true, nil)
     }
     
-    private static func validateRegistrationCredentials(_ registrationCredentials: RegistrationCredentials) -> ValidationResult {
+    private func validateRegistrationCredentials(_ registrationCredentials: RegistrationCredentials) -> ValidationResult {
         let nameValidationResult = ValidationHelper.validateRequiredText(registrationCredentials.name, withLabel: "name")
         if !nameValidationResult.isValid {
             return (false, nameValidationResult.error!)
@@ -87,6 +103,18 @@ class FirebaseAuthenticationService {
             return (false, passwordValidationResult.error!)
         }
         
+        let birthdayValidationResult = ValidationHelper.validateBirthday(birthday: registrationCredentials.birthDate, minimumIncludedAge: 18, withLabel: "birthday")
+        if !birthdayValidationResult.isValid {
+            return (false, birthdayValidationResult.error!)
+        }
+        
         return (true, nil)
+    }
+}
+
+extension FirebaseAuthenticationService: DAOCreateDelegate {
+    
+    func onCreateOperationFinished(error: String?) {
+        
     }
 }

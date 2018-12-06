@@ -23,7 +23,9 @@ class LoginViewController: UIViewController {
         self.labelGeneralError.isHidden = true
         
         let loginCredentials = LoginCredentials(email: textFieldEmail.text, password: textFieldPassword.text)
-        FirebaseAuthenticationService.login(withCredentials: loginCredentials, endedDelegate: self)
+        
+        let loginService = FirebaseAuthenticationService()
+        loginService.login(withCredentials: loginCredentials, endedDelegate: self)
     }
 }
 
