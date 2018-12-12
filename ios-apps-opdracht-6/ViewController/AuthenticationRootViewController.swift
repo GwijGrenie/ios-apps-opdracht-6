@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AuthenticationDelegate {
+protocol AuthenticationUIDelegate {
     func onLoginAuthenticated()
 }
 
@@ -77,9 +77,8 @@ extension AuthentictationRootViewController {
     }
 }
 
-extension AuthentictationRootViewController: AuthenticationDelegate {
+extension AuthentictationRootViewController: AuthenticationUIDelegate {
     func onLoginAuthenticated() {
-        
-        self.navigationController!.pushViewController(, animated: <#T##Bool#>)
+        self.navigationController!.performSegue(withIdentifier: "SegueLoggedIn", sender: nil)
     }
 }

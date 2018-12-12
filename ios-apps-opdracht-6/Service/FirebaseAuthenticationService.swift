@@ -111,10 +111,3 @@ class FirebaseAuthenticationService {
         return (true, nil)
     }
 }
-
-extension FirebaseAuthenticationService: DAOCreateDelegate {
-    
-    func onCreateOperationFinished(error: String?) {
-        
-    }
-}

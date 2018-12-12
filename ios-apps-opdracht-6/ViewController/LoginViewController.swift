@@ -38,6 +38,6 @@ extension LoginViewController: LoginDelegate {
             return
         }
         
-        print(user!.email)
+        (self.navigationController!.viewControllers[0] as! AuthenticationUIDelegate).onLoginAuthenticated()
     }
 }

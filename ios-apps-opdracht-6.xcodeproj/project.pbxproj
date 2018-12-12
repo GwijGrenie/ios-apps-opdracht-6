@@ -13,12 +13,19 @@
 		3F01A43D21AE816B00EA3170 /* ios_apps_opdracht_6.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F01A43B21AE816B00EA3170 /* ios_apps_opdracht_6.xcdatamodeld */; };
 		3F01A43F21AE816D00EA3170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F01A43E21AE816D00EA3170 /* Assets.xcassets */; };
 		3F01A44221AE816D00EA3170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F01A44021AE816D00EA3170 /* LaunchScreen.storyboard */; };
+		3F09D78021C1002E006720A5 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F09D77F21C1002E006720A5 /* Article.swift */; };
+		3F09D78221C100E9006720A5 /* Bid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F09D78121C100E9006720A5 /* Bid.swift */; };
+		3F09D78521C10652006720A5 /* MemberConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F09D78421C10652006720A5 /* MemberConverter.swift */; };
 		3F0DB21B21B919AB006A97D3 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0DB21A21B919AB006A97D3 /* Member.swift */; };
 		3F0DB21E21B91A36006A97D3 /* MemberDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0DB21D21B91A36006A97D3 /* MemberDAO.swift */; };
 		3F0DB22021B91A4D006A97D3 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0DB21F21B91A4D006A97D3 /* DAO.swift */; };
 		3F0FA69521AFDB1D0069FC2C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FA69421AFDB1D0069FC2C /* RegistrationViewController.swift */; };
+		3F24EC9C21C1091200E8C7FC /* ArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */; };
+		3F24EC9E21C10ABA00E8C7FC /* ArticleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24EC9D21C10ABA00E8C7FC /* ArticleDAO.swift */; };
+		3F24ECA021C10CD300E8C7FC /* BidConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24EC9F21C10CD300E8C7FC /* BidConverter.swift */; };
+		3F24ECA321C10D0C00E8C7FC /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24ECA221C10D0C00E8C7FC /* Converter.swift */; };
 		3FD3B0CC21AE90D700774A34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3B0CB21AE90D700774A34 /* GoogleService-Info.plist */; };
-		3FE92C4421B7C278007A9B20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE92C4321B7C278007A9B20 /* ViewController.swift */; };
+		3FE92C4421B7C278007A9B20 /* AuthenticationRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */; };
 		3FE92C4C21B7CF34007A9B20 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE92C4B21B7CF34007A9B20 /* FirebaseAuthenticationService.swift */; };
 		B216B4CC7A7B6DCD130088D8 /* Pods_ios_apps_opdracht_6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */; };
 		E832FC9021B8695D009C56A2 /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */; };
@@ -35,12 +42,19 @@
 		3F01A43E21AE816D00EA3170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F01A44121AE816D00EA3170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F01A44321AE816D00EA3170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F09D77F21C1002E006720A5 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		3F09D78121C100E9006720A5 /* Bid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bid.swift; sourceTree = "<group>"; };
+		3F09D78421C10652006720A5 /* MemberConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberConverter.swift; sourceTree = "<group>"; };
 		3F0DB21A21B919AB006A97D3 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		3F0DB21D21B91A36006A97D3 /* MemberDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDAO.swift; sourceTree = "<group>"; };
 		3F0DB21F21B91A4D006A97D3 /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		3F0FA69421AFDB1D0069FC2C /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewController.swift; sourceTree = "<group>"; };
+		3F24EC9D21C10ABA00E8C7FC /* ArticleDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDAO.swift; sourceTree = "<group>"; };
+		3F24EC9F21C10CD300E8C7FC /* BidConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidConverter.swift; sourceTree = "<group>"; };
+		3F24ECA221C10D0C00E8C7FC /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		3FD3B0CB21AE90D700774A34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3FE92C4321B7C278007A9B20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRootViewController.swift; sourceTree = "<group>"; };
 		3FE92C4B21B7CF34007A9B20 /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
 		DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_apps_opdracht_6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
@@ -97,10 +111,22 @@
 			path = "ios-apps-opdracht-6";
 			sourceTree = "<group>";
 		};
+		3F09D78321C1060D006720A5 /* Converter */ = {
+			isa = PBXGroup;
+			children = (
+				3F09D78421C10652006720A5 /* MemberConverter.swift */,
+				3F24EC9F21C10CD300E8C7FC /* BidConverter.swift */,
+				3F24ECA221C10D0C00E8C7FC /* Converter.swift */,
+			);
+			path = Converter;
+			sourceTree = "<group>";
+		};
 		3F0DB21921B91990006A97D3 /* Business */ = {
 			isa = PBXGroup;
 			children = (
 				3F0DB21A21B919AB006A97D3 /* Member.swift */,
+				3F09D77F21C1002E006720A5 /* Article.swift */,
+				3F09D78121C100E9006720A5 /* Bid.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -108,8 +134,10 @@
 		3F0DB21C21B91A25006A97D3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3F09D78321C1060D006720A5 /* Converter */,
 				3F0DB21D21B91A36006A97D3 /* MemberDAO.swift */,
 				3F0DB21F21B91A4D006A97D3 /* DAO.swift */,
+				3F24EC9D21C10ABA00E8C7FC /* ArticleDAO.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -119,7 +147,8 @@
 			children = (
 				3F01A43621AE816B00EA3170 /* LoginViewController.swift */,
 				3F0FA69421AFDB1D0069FC2C /* RegistrationViewController.swift */,
-				3FE92C4321B7C278007A9B20 /* ViewController.swift */,
+				3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */,
+				3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -317,13 +346,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE92C4C21B7CF34007A9B20 /* FirebaseAuthenticationService.swift in Sources */,
-				3FE92C4421B7C278007A9B20 /* ViewController.swift in Sources */,
+				3FE92C4421B7C278007A9B20 /* AuthenticationRootViewController.swift in Sources */,
+				3F09D78521C10652006720A5 /* MemberConverter.swift in Sources */,
+				3F24EC9E21C10ABA00E8C7FC /* ArticleDAO.swift in Sources */,
+				3F24ECA321C10D0C00E8C7FC /* Converter.swift in Sources */,
+				3F24EC9C21C1091200E8C7FC /* ArticleListTableViewController.swift in Sources */,
+				3F24ECA021C10CD300E8C7FC /* BidConverter.swift in Sources */,
 				3F01A43721AE816B00EA3170 /* LoginViewController.swift in Sources */,
 				E832FC9021B8695D009C56A2 /* ValidationHelper.swift in Sources */,
 				3F0DB21E21B91A36006A97D3 /* MemberDAO.swift in Sources */,
 				3F0DB21B21B919AB006A97D3 /* Member.swift in Sources */,
 				E832FC9221B86B4E009C56A2 /* AuthenticationDelegate.swift in Sources */,
+				3F09D78221C100E9006720A5 /* Bid.swift in Sources */,
 				3F01A43D21AE816B00EA3170 /* ios_apps_opdracht_6.xcdatamodeld in Sources */,
+				3F09D78021C1002E006720A5 /* Article.swift in Sources */,
 				3F0DB22021B91A4D006A97D3 /* DAO.swift in Sources */,
 				3F01A43521AE816B00EA3170 /* AppDelegate.swift in Sources */,
 				3F0FA69521AFDB1D0069FC2C /* RegistrationViewController.swift in Sources */,

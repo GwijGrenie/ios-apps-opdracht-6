@@ -28,4 +28,19 @@ class MemberDAO: DAO {
             onFinished?(nil)
         }
     }
+    
+    func getAll(onFinished: ((_ queryResults: [Member], _ error: String?) -> Void)?) {
+        firestore.collection("Member").getDocuments(completion: {(querySnapshot, error) in
+            if error != nil {
+                return
+            }
+            
+            let members: [Member]
+            
+            querySnapshot?.documents.forEach({queryDocumentSnapshot in
+                let data = queryDocumentSnapshot.data()
+                
+            })
+        })
+    }
 }
