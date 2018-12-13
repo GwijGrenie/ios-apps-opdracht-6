@@ -10,12 +10,17 @@ import UIKit
 
 class ArticleListTableViewController: UITableViewController {
 
-    var articles: [Article] = [Article]()
+    // MARK: Instance variables
+    
+    private lazy var articleDAO: ArticleDAO = ArticleDAO()
+    private var articles: [Article] = [Article]()
+    
+    // MARK: Overrides
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load articles
+        loadArticles()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,42 +38,19 @@ class ArticleListTableViewController: UITableViewController {
 
         return cell
     }
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    // MARK: Local helper methods
+    
+    private func loadArticles() {
+        
+        articleDAO.getAll(onFinished: {(articles, error) in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            self.articles = articles
+        })
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

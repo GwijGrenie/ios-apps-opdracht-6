@@ -22,11 +22,14 @@
 		3F0FA69521AFDB1D0069FC2C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0FA69421AFDB1D0069FC2C /* RegistrationViewController.swift */; };
 		3F24EC9C21C1091200E8C7FC /* ArticleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */; };
 		3F24EC9E21C10ABA00E8C7FC /* ArticleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24EC9D21C10ABA00E8C7FC /* ArticleDAO.swift */; };
-		3F24ECA021C10CD300E8C7FC /* BidConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24EC9F21C10CD300E8C7FC /* BidConverter.swift */; };
-		3F24ECA321C10D0C00E8C7FC /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24ECA221C10D0C00E8C7FC /* Converter.swift */; };
+		3F24ECA021C10CD300E8C7FC /* BidExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24EC9F21C10CD300E8C7FC /* BidExtractor.swift */; };
+		3F24ECA321C10D0C00E8C7FC /* DataExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F24ECA221C10D0C00E8C7FC /* DataExtractor.swift */; };
 		3FD3B0CC21AE90D700774A34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3B0CB21AE90D700774A34 /* GoogleService-Info.plist */; };
+		3FE87E3221C24ABF00B18C2F /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE87E3121C24ABF00B18C2F /* ParseHelper.swift */; };
 		3FE92C4421B7C278007A9B20 /* AuthenticationRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */; };
 		3FE92C4C21B7CF34007A9B20 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE92C4B21B7CF34007A9B20 /* FirebaseAuthenticationService.swift */; };
+		3FF9619321C24E3300CC0869 /* ArticleExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF9619221C24E3300CC0869 /* ArticleExtractor.swift */; };
+		3FF9619521C2521A00CC0869 /* BetterDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF9619421C2521A00CC0869 /* BetterDAO.swift */; };
 		B216B4CC7A7B6DCD130088D8 /* Pods_ios_apps_opdracht_6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */; };
 		E832FC9021B8695D009C56A2 /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */; };
 		E832FC9221B86B4E009C56A2 /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832FC9121B86B4E009C56A2 /* AuthenticationDelegate.swift */; };
@@ -51,11 +54,14 @@
 		3F0FA69421AFDB1D0069FC2C /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewController.swift; sourceTree = "<group>"; };
 		3F24EC9D21C10ABA00E8C7FC /* ArticleDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDAO.swift; sourceTree = "<group>"; };
-		3F24EC9F21C10CD300E8C7FC /* BidConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidConverter.swift; sourceTree = "<group>"; };
-		3F24ECA221C10D0C00E8C7FC /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		3F24EC9F21C10CD300E8C7FC /* BidExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidExtractor.swift; sourceTree = "<group>"; };
+		3F24ECA221C10D0C00E8C7FC /* DataExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtractor.swift; sourceTree = "<group>"; };
 		3FD3B0CB21AE90D700774A34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3FE87E3121C24ABF00B18C2F /* ParseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRootViewController.swift; sourceTree = "<group>"; };
 		3FE92C4B21B7CF34007A9B20 /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
+		3FF9619221C24E3300CC0869 /* ArticleExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleExtractor.swift; sourceTree = "<group>"; };
+		3FF9619421C2521A00CC0869 /* BetterDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterDAO.swift; sourceTree = "<group>"; };
 		DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_apps_opdracht_6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		E832FC9121B86B4E009C56A2 /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
@@ -111,14 +117,15 @@
 			path = "ios-apps-opdracht-6";
 			sourceTree = "<group>";
 		};
-		3F09D78321C1060D006720A5 /* Converter */ = {
+		3F09D78321C1060D006720A5 /* Extractor */ = {
 			isa = PBXGroup;
 			children = (
 				3F09D78421C10652006720A5 /* MemberConverter.swift */,
-				3F24EC9F21C10CD300E8C7FC /* BidConverter.swift */,
-				3F24ECA221C10D0C00E8C7FC /* Converter.swift */,
+				3F24EC9F21C10CD300E8C7FC /* BidExtractor.swift */,
+				3F24ECA221C10D0C00E8C7FC /* DataExtractor.swift */,
+				3FF9619221C24E3300CC0869 /* ArticleExtractor.swift */,
 			);
-			path = Converter;
+			path = Extractor;
 			sourceTree = "<group>";
 		};
 		3F0DB21921B91990006A97D3 /* Business */ = {
@@ -134,9 +141,10 @@
 		3F0DB21C21B91A25006A97D3 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3F09D78321C1060D006720A5 /* Converter */,
+				3F09D78321C1060D006720A5 /* Extractor */,
 				3F0DB21D21B91A36006A97D3 /* MemberDAO.swift */,
 				3F0DB21F21B91A4D006A97D3 /* DAO.swift */,
+				3FF9619421C2521A00CC0869 /* BetterDAO.swift */,
 				3F24EC9D21C10ABA00E8C7FC /* ArticleDAO.swift */,
 			);
 			path = Data;
@@ -183,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */,
+				3FE87E3121C24ABF00B18C2F /* ParseHelper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -349,14 +358,17 @@
 				3FE92C4421B7C278007A9B20 /* AuthenticationRootViewController.swift in Sources */,
 				3F09D78521C10652006720A5 /* MemberConverter.swift in Sources */,
 				3F24EC9E21C10ABA00E8C7FC /* ArticleDAO.swift in Sources */,
-				3F24ECA321C10D0C00E8C7FC /* Converter.swift in Sources */,
+				3FE87E3221C24ABF00B18C2F /* ParseHelper.swift in Sources */,
+				3F24ECA321C10D0C00E8C7FC /* DataExtractor.swift in Sources */,
 				3F24EC9C21C1091200E8C7FC /* ArticleListTableViewController.swift in Sources */,
-				3F24ECA021C10CD300E8C7FC /* BidConverter.swift in Sources */,
+				3F24ECA021C10CD300E8C7FC /* BidExtractor.swift in Sources */,
 				3F01A43721AE816B00EA3170 /* LoginViewController.swift in Sources */,
 				E832FC9021B8695D009C56A2 /* ValidationHelper.swift in Sources */,
 				3F0DB21E21B91A36006A97D3 /* MemberDAO.swift in Sources */,
 				3F0DB21B21B919AB006A97D3 /* Member.swift in Sources */,
 				E832FC9221B86B4E009C56A2 /* AuthenticationDelegate.swift in Sources */,
+				3FF9619321C24E3300CC0869 /* ArticleExtractor.swift in Sources */,
+				3FF9619521C2521A00CC0869 /* BetterDAO.swift in Sources */,
 				3F09D78221C100E9006720A5 /* Bid.swift in Sources */,
 				3F01A43D21AE816B00EA3170 /* ios_apps_opdracht_6.xcdatamodeld in Sources */,
 				3F09D78021C1002E006720A5 /* Article.swift in Sources */,

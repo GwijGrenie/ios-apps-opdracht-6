@@ -79,6 +79,6 @@ extension AuthentictationRootViewController {
 
 extension AuthentictationRootViewController: AuthenticationUIDelegate {
     func onLoginAuthenticated() {
-        self.navigationController!.performSegue(withIdentifier: "SegueLoggedIn", sender: nil)
+        self.performSegue(withIdentifier: "SegueLoggedIn", sender: self)
     }
 }

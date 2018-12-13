@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import Firebase
 
-protocol Converter {
+protocol DataExtractorProtocol {
+    
     associatedtype T
     
-    func convert(_ data: [String: Any]) -> (result: T, error: String?)
+    func extractElement(_ documentSnapshot: DocumentSnapshot) -> T?
 }

@@ -11,5 +11,5 @@ struct Article {
     let id: String
     let description: String
     let minimumBidValue: Double
-    let bids: [Bid]
+    var bids: [Bid]
 }
