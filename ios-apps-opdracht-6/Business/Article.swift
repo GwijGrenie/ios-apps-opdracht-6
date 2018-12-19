@@ -28,15 +28,7 @@ extension Article: FirestoreExtractable {
         }
         
         description = data["description"] as! String
-        
-        let b:CFNumber = data["minimumBidValue"] as! CFNumber
-        var bidFloat :Float = 0
-        if CFNumberGetValue(b, CFNumberType.floatType,&bidFloat ) {
-            minimumBidValue = Double(bidFloat)
-        }
-        else {
-            minimumBidValue = 0
-        }
+        minimumBidValue = data["minimumBidValue"] as! NSNumber as! Double
     }
 }
 

@@ -12,7 +12,8 @@ class BidFirestoreDAO {
     
     // MARK: Typealiases
     
-    typealias SnapshotListenerCallback = ((_ article: Article?, _ querySnapshot: QuerySnapshot?, _ error: String?) -> Void)
+    typealias GetAllCallback = (_ article: Article?, _ bids: [Bid]?, _ error: String?) -> Void
+    typealias SnapshotListenerCallback = (_ article: Article?, _ querySnapshot: QuerySnapshot?, _ error: String?) -> Void
     
     // MARK: Read-only properties
     
@@ -22,19 +23,35 @@ class BidFirestoreDAO {
     // MARK: Instance variables
     
     private lazy var firestore: Firestore = Firestore.firestore()
-    private var registeredListeners: [ListenerRegistration]
+    private var articleIdToListenerRegistrationMapping: [String: ListenerRegistration]
     
     // MARK: Initializors
     
     init () {
-        registeredListeners = [ListenerRegistration]()
+        articleIdToListenerRegistrationMapping = [String: ListenerRegistration]()
     }
     
     // MARK: Public methods
     
+    func getAllAsync(ForArticle article: Article, onFinished: GetAllCallback?) {
+        firestore.collection(collectionName).document(article.id).collection(subcollectionName).getDocuments(completion: { querySnapshot, error in
+            guard let querySnapshot = querySnapshot else {
+                onFinished?(nil, nil, error!.localizedDescription)
+                return
+            }
+            
+            var bids: [Bid] = [Bid]()
+            
+            querySnapshot.documents.forEach({ document in
+                bids.append(Bid(document))
+            })
+            
+            onFinished?(article, bids, nil)
+        })
+    }
+    
     func registerSnapshotListener(ForArticle article: Article, onSnapshot: SnapshotListenerCallback?) {
         let listenerRegistration: ListenerRegistration = firestore.collection(collectionName).document(article.id).collection(subcollectionName).addSnapshotListener({ querySnapshot, error in
-            
             guard let querySnapshot = querySnapshot else {
                 onSnapshot?(nil, nil, error!.localizedDescription)
                 return
@@ -43,12 +60,20 @@ class BidFirestoreDAO {
             onSnapshot?(article, querySnapshot, nil)
         })
         
-        registeredListeners.append(listenerRegistration)
+        articleIdToListenerRegistrationMapping[article.id] = listenerRegistration
     }
     
     func unregisterSnapshotListeners() {
-        registeredListeners.forEach({ registeredListener in
-            registeredListener.remove()
+        articleIdToListenerRegistrationMapping.forEach({ articleId, listenerRegistration in
+            listenerRegistration.remove()
         })
+        
+        articleIdToListenerRegistrationMapping = [String: ListenerRegistration]()
+    }
+    
+    func unregisterSnapshotListeners(ForArticle article: Article) {
+        let articleId = article.id
+        articleIdToListenerRegistrationMapping[articleId]?.remove()
+        articleIdToListenerRegistrationMapping.removeValue(forKey: articleId)
     }
 }

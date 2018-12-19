@@ -42,6 +42,10 @@ class ArticleListTableViewController: UITableViewController {
         })
     }
     
+    private lazy var bidGetAllCallback: BidFirestoreDAO.GetAllCallback = { article, bids, error in
+        
+    }
+    
     private lazy var bidSnapshotCallback: BidFirestoreDAO.SnapshotListenerCallback = { article, querySnapshot, error in
         guard let querySnapshot = querySnapshot else {
             print(error!)
@@ -116,12 +120,22 @@ class ArticleListTableViewController: UITableViewController {
     // MARK: Local helpers
     
     private func addArticle(_ articleToAdd: Article) {
-        articles.append(articleToAdd)
+        var article: Article = articleToAdd
+        articles.append(article)
+        bidFirestoreDAO.getAllAsync(ForArticle: articleToAdd, onFinished: { passedArticle, bids, error in
+            guard passedArticle != nil, let bids = bids else {
+                print(error!)
+                return
+            }
+            
+            article.bids = bids
+        })
         bidFirestoreDAO.registerSnapshotListener(ForArticle: articleToAdd, onSnapshot: bidSnapshotCallback)
         tableView.reloadData()
     }
     
     private func updateArticle(_ articleToUpdate: Article) {
+        
         let index: Int? = articles.firstIndex(where: { article in
             return article.id == articleToUpdate.id
         })
@@ -139,6 +153,7 @@ class ArticleListTableViewController: UITableViewController {
         articles.removeAll(where: { article in
             return article.id == articleToRemove.id
         })
+        bidFirestoreDAO.unregisterSnapshotListeners(ForArticle: articleToRemove)
         tableView.reloadData()
     }
 }

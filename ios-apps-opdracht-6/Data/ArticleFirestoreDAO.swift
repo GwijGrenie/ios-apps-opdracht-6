@@ -13,7 +13,7 @@ class ArticleFirestoreDAO {
     // MARK: Typealisases
     
     typealias SnapshotListenerCallback = ((_ querySnapshot: QuerySnapshot?, _ error: String?) -> Void )
-    
+
     // MARK: Read-only properties
     
     let collectionName: String = "Article"
@@ -21,7 +21,7 @@ class ArticleFirestoreDAO {
     // MARK: Instance variables
     
     private lazy var firestore: Firestore = Firestore.firestore()
-    private var registeredListeners: [ListenerRegistration]
+    private var registeredListeners: [ArticleWithListenerRegistration]
     
     // MARK: Initializors
     
