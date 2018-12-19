@@ -27,14 +27,7 @@ extension Bid: FirestoreExtractable {
             return
         }
                 
-        let b:CFNumber = data["value"] as! CFNumber
-        var bidFloat :Float = 0
-        if CFNumberGetValue(b, CFNumberType.floatType,&bidFloat ) {
-            value = Double(bidFloat)
-        }
-        else {
-            value = 0
-        }
+        value = data["value"] as! NSNumber as! Double
         
         date = (data["date"] as! Timestamp).dateValue()
         memberId = data["memberId"] as! String

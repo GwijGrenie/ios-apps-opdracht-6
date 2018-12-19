@@ -47,10 +47,12 @@ class ArticleListTableViewController: UITableViewController {
     }
     
     private lazy var bidSnapshotCallback: BidFirestoreDAO.SnapshotListenerCallback = { article, querySnapshot, error in
-        guard let querySnapshot = querySnapshot else {
+        guard let article = article, let querySnapshot = querySnapshot else {
             print(error!)
             return
         }
+        
+        print("---- RECEIVED BIDS FOR " + article.description)
         
         var bids: [Bid] = [Bid]()
         
@@ -58,11 +60,11 @@ class ArticleListTableViewController: UITableViewController {
             bids.append(Bid(document))
         })
         
-        var foundArticle: Article? = self.articles.first(where: { iteratedArticle in
-            return iteratedArticle.id == article!.id
+        var indexOfArticle: Int = self.articles.firstIndex(where: { iteratedArticle in
+            return iteratedArticle.id == article.id
         })!
         
-        foundArticle!.bids = bids
+        self.articles[indexOfArticle].bids = bids
         self.tableView.reloadData()
     }
     
@@ -101,8 +103,6 @@ class ArticleListTableViewController: UITableViewController {
 
         let article: Article = articles[indexPath.row]
         
-        print(article)
-        
         cell.textLabel!.text = article.description
         
         if article.bids.isEmpty {
@@ -120,36 +120,46 @@ class ArticleListTableViewController: UITableViewController {
     // MARK: Local helpers
     
     private func addArticle(_ articleToAdd: Article) {
-        var article: Article = articleToAdd
-        articles.append(article)
-        bidFirestoreDAO.getAllAsync(ForArticle: articleToAdd, onFinished: { passedArticle, bids, error in
-            guard passedArticle != nil, let bids = bids else {
+        print("---- ADDING ARTICLE: " + articleToAdd.description)
+        bidFirestoreDAO.getAllAsync(ForArticle: articleToAdd, onFinished: { article, bids, error in
+            guard var article = article, let bids = bids else {
+                print(error!)
+                return
+            }
+    
+            article.bids = bids
+            
+            self.articles.append(article)
+            self.tableView.reloadData()
+            
+            self.bidFirestoreDAO.registerSnapshotListener(ForArticle: articleToAdd, onSnapshot: self.bidSnapshotCallback)
+        })
+    }
+    
+    private func updateArticle(_ articleToUpdate: Article) {
+        print("---- UPDATING ARTICLE: " + articleToUpdate.description)
+        self.bidFirestoreDAO.unregisterSnapshotListeners(ForArticle: articleToUpdate)
+        
+        bidFirestoreDAO.getAllAsync(ForArticle: articleToUpdate, onFinished: { article, bids, error in
+            guard var article = article, let bids = bids else {
                 print(error!)
                 return
             }
             
             article.bids = bids
+            
+            let row: Int = self.articles.firstIndex(where: { article in
+                return article.id == articleToUpdate.id
+            })!
+            
+            self.articles[row] = articleToUpdate
+            self.tableView.reloadRow(at: IndexPath(row: row, section: 0), with: .automatic)
+            self.bidFirestoreDAO.registerSnapshotListener(ForArticle: article, onSnapshot: self.bidSnapshotCallback)
         })
-        bidFirestoreDAO.registerSnapshotListener(ForArticle: articleToAdd, onSnapshot: bidSnapshotCallback)
-        tableView.reloadData()
-    }
-    
-    private func updateArticle(_ articleToUpdate: Article) {
-        
-        let index: Int? = articles.firstIndex(where: { article in
-            return article.id == articleToUpdate.id
-        })
-        
-        if let index = index {
-            articles[index] = articleToUpdate
-        } else {
-            articles.append(articleToUpdate)
-        }
-    
-        tableView.reloadData()
     }
     
     private func removeArticle(_ articleToRemove: Article) {
+        print("---- REMOVING ARTICLE: " + articleToRemove.description)
         articles.removeAll(where: { article in
             return article.id == articleToRemove.id
         })

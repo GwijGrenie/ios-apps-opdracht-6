@@ -27,8 +27,8 @@
 		E832FC9021B8695D009C56A2 /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */; };
 		E832FC9221B86B4E009C56A2 /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832FC9121B86B4E009C56A2 /* AuthenticationDelegate.swift */; };
 		E84DAF2521C541EC00451430 /* FirestoreExtractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84DAF2421C541EC00451430 /* FirestoreExtractable.swift */; };
-		E84DAF2A21C545BC00451430 /* ParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84DAF2921C545BC00451430 /* ParserHelper.swift */; };
 		E84DAF2C21C54E6200451430 /* FirestoreStoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84DAF2B21C54E6200451430 /* FirestoreStoreable.swift */; };
+		E867291421CAD13400ED1D62 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867291321CAD13400ED1D62 /* UITableView.swift */; };
 		E86B450721C9786200289E58 /* BidFirestoreDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B450621C9786200289E58 /* BidFirestoreDAO.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +56,8 @@
 		E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		E832FC9121B86B4E009C56A2 /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
 		E84DAF2421C541EC00451430 /* FirestoreExtractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExtractable.swift; sourceTree = "<group>"; };
-		E84DAF2921C545BC00451430 /* ParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserHelper.swift; sourceTree = "<group>"; };
 		E84DAF2B21C54E6200451430 /* FirestoreStoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreStoreable.swift; sourceTree = "<group>"; };
+		E867291321CAD13400ED1D62 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		E86B450621C9786200289E58 /* BidFirestoreDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidFirestoreDAO.swift; sourceTree = "<group>"; };
 		EC1290807D512FE4E6D9583A /* Pods-ios-apps-opdracht-6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-apps-opdracht-6.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-apps-opdracht-6/Pods-ios-apps-opdracht-6.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,8 +172,8 @@
 		E832FC8E21B8694E009C56A2 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */,
-				E84DAF2921C545BC00451430 /* ParserHelper.swift */,
+				E867291221CAD0A200ED1D62 /* Extension */,
+				E8DB7E2E21CAAA4C009E508D /* Helper */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -185,6 +185,22 @@
 				E84DAF2B21C54E6200451430 /* FirestoreStoreable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		E867291221CAD0A200ED1D62 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E867291321CAD13400ED1D62 /* UITableView.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E8DB7E2E21CAAA4C009E508D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +364,7 @@
 				3FE92C4C21B7CF34007A9B20 /* FirebaseAuthenticationService.swift in Sources */,
 				3FE92C4421B7C278007A9B20 /* AuthenticationRootViewController.swift in Sources */,
 				3F24EC9E21C10ABA00E8C7FC /* ArticleFirestoreDAO.swift in Sources */,
+				E867291421CAD13400ED1D62 /* UITableView.swift in Sources */,
 				3F24EC9C21C1091200E8C7FC /* ArticleListTableViewController.swift in Sources */,
 				E84DAF2C21C54E6200451430 /* FirestoreStoreable.swift in Sources */,
 				3F01A43721AE816B00EA3170 /* LoginViewController.swift in Sources */,
@@ -356,7 +373,6 @@
 				E86B450721C9786200289E58 /* BidFirestoreDAO.swift in Sources */,
 				3F0DB21B21B919AB006A97D3 /* Member.swift in Sources */,
 				E832FC9221B86B4E009C56A2 /* AuthenticationDelegate.swift in Sources */,
-				E84DAF2A21C545BC00451430 /* ParserHelper.swift in Sources */,
 				3F09D78221C100E9006720A5 /* Bid.swift in Sources */,
 				3F01A43D21AE816B00EA3170 /* ios_apps_opdracht_6.xcdatamodeld in Sources */,
 				E84DAF2521C541EC00451430 /* FirestoreExtractable.swift in Sources */,

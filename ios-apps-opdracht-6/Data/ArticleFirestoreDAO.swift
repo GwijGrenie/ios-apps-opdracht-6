@@ -21,7 +21,7 @@ class ArticleFirestoreDAO {
     // MARK: Instance variables
     
     private lazy var firestore: Firestore = Firestore.firestore()
-    private var registeredListeners: [ArticleWithListenerRegistration]
+    private var registeredListeners: [ListenerRegistration]
     
     // MARK: Initializors
     
