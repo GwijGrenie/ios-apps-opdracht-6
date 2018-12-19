@@ -25,7 +25,7 @@ class FirebaseAuthenticationService {
     
     typealias ValidationResult = (isValid: Bool, error: String?)
     
-    private lazy var memberDAO: MemberDAO = MemberDAO()
+    private lazy var memberFirestoreDAO: MemberFirestoreDAO = MemberFirestoreDAO()
     
     init() {}
     
@@ -66,7 +66,7 @@ class FirebaseAuthenticationService {
             let user = authenticationDataResult!.user
             
             let member = Member(id: String(), name: registrationCredentials.name!, birthday: registrationCredentials.birthDate, uid: user.uid)
-            self.memberDAO.create(member, onFinished: {error in
+            self.memberFirestoreDAO.create(member, onFinished: {error in
                 print("Error adding extra credentials " + error!)
                 delegate?.onEnded(user: authenticationDataResult?.user, error: nil)
             })
