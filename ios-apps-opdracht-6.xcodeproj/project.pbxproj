@@ -23,6 +23,7 @@
 		3FD3B0CC21AE90D700774A34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3B0CB21AE90D700774A34 /* GoogleService-Info.plist */; };
 		3FE92C4421B7C278007A9B20 /* AuthenticationRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */; };
 		3FE92C4C21B7CF34007A9B20 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE92C4B21B7CF34007A9B20 /* FirebaseAuthenticationService.swift */; };
+		3FEAF17121CB8A2A002EBB38 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEAF17021CB8A2A002EBB38 /* ArticleDetailViewController.swift */; };
 		B216B4CC7A7B6DCD130088D8 /* Pods_ios_apps_opdracht_6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */; };
 		E832FC9021B8695D009C56A2 /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */; };
 		E832FC9221B86B4E009C56A2 /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832FC9121B86B4E009C56A2 /* AuthenticationDelegate.swift */; };
@@ -52,6 +53,7 @@
 		3FD3B0CB21AE90D700774A34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRootViewController.swift; sourceTree = "<group>"; };
 		3FE92C4B21B7CF34007A9B20 /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
+		3FEAF17021CB8A2A002EBB38 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_apps_opdracht_6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
 		E832FC9121B86B4E009C56A2 /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				3F0FA69421AFDB1D0069FC2C /* RegistrationViewController.swift */,
 				3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */,
 				3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */,
+				3FEAF17021CB8A2A002EBB38 /* ArticleDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			files = (
 				3FE92C4C21B7CF34007A9B20 /* FirebaseAuthenticationService.swift in Sources */,
 				3FE92C4421B7C278007A9B20 /* AuthenticationRootViewController.swift in Sources */,
+				3FEAF17121CB8A2A002EBB38 /* ArticleDetailViewController.swift in Sources */,
 				3F24EC9E21C10ABA00E8C7FC /* ArticleFirestoreDAO.swift in Sources */,
 				E867291421CAD13400ED1D62 /* UITableView.swift in Sources */,
 				3F24EC9C21C1091200E8C7FC /* ArticleListTableViewController.swift in Sources */,

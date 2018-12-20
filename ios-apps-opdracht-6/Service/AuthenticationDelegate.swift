@@ -9,9 +9,9 @@ import Foundation
 import Firebase
 
 protocol LoginDelegate {
-    func onEnded(user: User?, error: String?)
+    func onEnded(member: Member?, error: String?)
 }
 
 protocol RegistrationDelegate {
-    func onEnded(user: User?, error: String?)
+    func onEnded(member: Member?, error: String?)
 }

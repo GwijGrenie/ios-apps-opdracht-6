@@ -27,7 +27,7 @@ extension Member: FirestoreExtractable {
             return
         }
         
-        name = data["date"] as! String
+        name = data["name"] as! String
         birthday = (data["birthday"] as! Timestamp).dateValue()
         uid = data["uid"] as! String
     }

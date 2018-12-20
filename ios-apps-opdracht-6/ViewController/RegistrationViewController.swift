@@ -38,11 +38,13 @@ class RegistrationViewController: UIViewController {
 
 extension RegistrationViewController: RegistrationDelegate {
     
-    func onEnded(user: User?, error: String?) {
+    func onEnded(member: Member?, error: String?) {
         if error != nil {
             labelGeneralError.text = error!
             labelGeneralError.isHidden = false
             return
         }
+        
+        (self.navigationController!.viewControllers[0] as! AuthenticationUIDelegate).onLoginAuthenticated(member: member!)
     }
 }

@@ -11,6 +11,10 @@ import Firebase
 
 class ArticleListTableViewController: UITableViewController {
     
+    // MARK: Dependency injection properties
+    
+    var currentMember: Member?
+    
     // MARK: Instance variables
     
     private var articles: [Article] = [Article]()
@@ -79,6 +83,10 @@ class ArticleListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard currentMember != nil else {
+            fatalError("currentMember property was not set")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -115,6 +123,13 @@ class ArticleListTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let articleDetailViewController: ArticleDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "ArticleDetails") as! ArticleDetailViewController
+        articleDetailViewController.article = articles[indexPath.row]
+        articleDetailViewController.member = currentMember!
+        self.navigationController?.pushViewController(articleDetailViewController, animated: true)
     }
     
     // MARK: Local helpers

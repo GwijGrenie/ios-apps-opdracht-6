@@ -31,13 +31,13 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginDelegate {
     
-    func onEnded(user: User?, error: String?) {
+    func onEnded(member: Member?, error: String?) {
         if error != nil {
             self.labelGeneralError.isHidden = false
             self.labelGeneralError.text = error!
             return
         }
         
-        (self.navigationController!.viewControllers[0] as! AuthenticationUIDelegate).onLoginAuthenticated()
+        (self.navigationController!.viewControllers[0] as! AuthenticationUIDelegate).onLoginAuthenticated(member: member!)
     }
 }

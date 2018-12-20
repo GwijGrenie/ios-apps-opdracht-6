@@ -8,37 +8,12 @@
 import UIKit
 
 protocol AuthenticationUIDelegate {
-    func onLoginAuthenticated()
+    func onLoginAuthenticated(member: Member)
 }
 
 class AuthentictationRootViewController: UIViewController {
     
-    private var embeddedViewController: UIViewController!
-    
-    private lazy var loginViewController: LoginViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! LoginViewController
-        embeddedViewController.addChild(viewController)
-        return viewController
-    }()
-    
-    private lazy var registerViewController: RegistrationViewController = {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        var viewController = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegistrationViewController
-        embeddedViewController.addChild(viewController)
-        return viewController
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EmbedSegue" {
-            self.embeddedViewController = segue.destination
-            add(asChildViewController: loginViewController)
-        }
-    }
+    // MARK: IBActions
     
     @IBAction func onValueChangedNavigation(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -58,9 +33,49 @@ class AuthentictationRootViewController: UIViewController {
             break
         }
     }
-}
-
-extension AuthentictationRootViewController {
+    
+    // MARK: Instance variables
+    
+    private var embeddedViewController: UIViewController!
+    private var member: Member!
+    
+    private lazy var loginViewController: LoginViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "loginViewController") as! LoginViewController
+        embeddedViewController.addChild(viewController)
+        return viewController
+    }()
+    
+    private lazy var registerViewController: RegistrationViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegistrationViewController
+        embeddedViewController.addChild(viewController)
+        return viewController
+    }()
+    
+    // MARK: Overrides
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "PresentAuthenticationContent":
+            self.embeddedViewController = segue.destination
+            add(asChildViewController: loginViewController)
+            break
+        case "PresentHome":
+            let articleListTableViewController: ArticleListTableViewController = segue.destination as! ArticleListTableViewController
+            articleListTableViewController.currentMember = member
+            break
+        default:
+            break
+        }
+    }
+    
+    // MARK: Local helpers
+    
     private func add(asChildViewController viewController: UIViewController) {
         embeddedViewController.addChild(viewController)
         embeddedViewController.view.addSubview(viewController.view)
@@ -78,7 +93,11 @@ extension AuthentictationRootViewController {
 }
 
 extension AuthentictationRootViewController: AuthenticationUIDelegate {
-    func onLoginAuthenticated() {
-        self.performSegue(withIdentifier: "SegueLoggedIn", sender: self)
+    
+    // MARK: AuthenticationUIDelegate implementation
+    
+    func onLoginAuthenticated(member: Member) {
+        self.member = member
+        self.performSegue(withIdentifier: "PresentHome", sender: self)
     }
 }
