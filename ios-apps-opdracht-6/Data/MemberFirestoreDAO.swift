@@ -11,8 +11,9 @@ import Firebase
 class MemberFirestoreDAO {
     
     // MARK: Typealiases
-    typealias CreateCallback = (_ error: String?) -> Void
-    typealias GetCallback = (_ member: Member?, _ error: String?) -> Void
+    
+    typealias CreateCallback = (_ localizedError: String?) -> Void
+    typealias GetCallback = (_ member: Member?, _ localizedError: String?) -> Void
     
     // MARK: Read-only properties
     
@@ -24,8 +25,8 @@ class MemberFirestoreDAO {
     
     // MARK: Public functions
     
-    func createAsync(_ element: Member, onFinished: CreateCallback?) {
-        firestore.collection(collectionName).addDocument(data: element.getData()) { error in
+    func createAsync(_ member: Member, onFinished: CreateCallback?) {
+        firestore.collection(collectionName).addDocument(data: member.getData()) { error in
             if error != nil {
                 onFinished?(error!.localizedDescription)
                 return

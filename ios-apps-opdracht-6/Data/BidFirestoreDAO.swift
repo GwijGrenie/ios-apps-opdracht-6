@@ -12,8 +12,9 @@ class BidFirestoreDAO {
     
     // MARK: Typealiases
     
-    typealias GetAllCallback = (_ article: Article?, _ bids: [Bid]?, _ error: String?) -> Void
-    typealias SnapshotListenerCallback = (_ article: Article?, _ querySnapshot: QuerySnapshot?, _ error: String?) -> Void
+    typealias CreateCallback = (_ LocalizedError: String?) -> Void
+    typealias GetAllCallback = (_ article: Article?, _ bids: [Bid]?, _ localizedError: String?) -> Void
+    typealias SnapshotListenerCallback = (_ article: Article?, _ querySnapshot: QuerySnapshot?, _ localizedError: String?) -> Void
     
     // MARK: Read-only properties
     
@@ -32,6 +33,17 @@ class BidFirestoreDAO {
     }
     
     // MARK: Public methods
+    
+    func createAsync(ForArticle article: Article, _ bid: Bid, onFinished: CreateCallback?) {
+        firestore.collection(collectionName).document(article.id).collection(subcollectionName).addDocument(data: bid.getData()) { error in
+            if error != nil {
+                onFinished?(error!.localizedDescription)
+                return
+            }
+            
+            onFinished?(nil)
+        }
+    }
     
     func getAllAsync(ForArticle article: Article, onFinished: GetAllCallback?) {
         firestore.collection(collectionName).document(article.id).collection(subcollectionName).getDocuments(completion: { querySnapshot, error in

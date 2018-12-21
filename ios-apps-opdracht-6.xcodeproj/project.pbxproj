@@ -26,11 +26,16 @@
 		3FEAF17121CB8A2A002EBB38 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEAF17021CB8A2A002EBB38 /* ArticleDetailViewController.swift */; };
 		B216B4CC7A7B6DCD130088D8 /* Pods_ios_apps_opdracht_6.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */; };
 		E832FC9021B8695D009C56A2 /* ValidationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */; };
-		E832FC9221B86B4E009C56A2 /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832FC9121B86B4E009C56A2 /* AuthenticationDelegate.swift */; };
 		E84DAF2521C541EC00451430 /* FirestoreExtractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84DAF2421C541EC00451430 /* FirestoreExtractable.swift */; };
 		E84DAF2C21C54E6200451430 /* FirestoreStoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84DAF2B21C54E6200451430 /* FirestoreStoreable.swift */; };
 		E867291421CAD13400ED1D62 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867291321CAD13400ED1D62 /* UITableView.swift */; };
 		E86B450721C9786200289E58 /* BidFirestoreDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86B450621C9786200289E58 /* BidFirestoreDAO.swift */; };
+		E8F6457921CD386300E9AF64 /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6457821CD386300E9AF64 /* LoginCredentials.swift */; };
+		E8F6457B21CD388A00E9AF64 /* RegistrationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6457A21CD388A00E9AF64 /* RegistrationCredentials.swift */; };
+		E8F6457E21CD397200E9AF64 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6457D21CD397200E9AF64 /* AuthenticationService.swift */; };
+		E8F6458021CD3A7B00E9AF64 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6457F21CD3A7B00E9AF64 /* LoginDelegate.swift */; };
+		E8F6458221CD3AC800E9AF64 /* RegistrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6458121CD3AC800E9AF64 /* RegistrationDelegate.swift */; };
+		E8F6458721CD3F1D00E9AF64 /* AuthenticationUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6458621CD3F1D00E9AF64 /* AuthenticationUIDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +53,7 @@
 		3F0DB21A21B919AB006A97D3 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		3F0DB21D21B91A36006A97D3 /* MemberFirestoreDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberFirestoreDAO.swift; sourceTree = "<group>"; };
 		3F0FA69421AFDB1D0069FC2C /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewController.swift; sourceTree = "<group>"; };
+		3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleListTableViewController.swift; path = "../New Group/ArticleListTableViewController.swift"; sourceTree = "<group>"; };
 		3F24EC9D21C10ABA00E8C7FC /* ArticleFirestoreDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleFirestoreDAO.swift; sourceTree = "<group>"; };
 		3FD3B0CB21AE90D700774A34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRootViewController.swift; sourceTree = "<group>"; };
@@ -56,11 +61,16 @@
 		3FEAF17021CB8A2A002EBB38 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		DA43184043A190D3DEBA4843 /* Pods_ios_apps_opdracht_6.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_apps_opdracht_6.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationHelper.swift; sourceTree = "<group>"; };
-		E832FC9121B86B4E009C56A2 /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
 		E84DAF2421C541EC00451430 /* FirestoreExtractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreExtractable.swift; sourceTree = "<group>"; };
 		E84DAF2B21C54E6200451430 /* FirestoreStoreable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreStoreable.swift; sourceTree = "<group>"; };
 		E867291321CAD13400ED1D62 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		E86B450621C9786200289E58 /* BidFirestoreDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidFirestoreDAO.swift; sourceTree = "<group>"; };
+		E8F6457821CD386300E9AF64 /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
+		E8F6457A21CD388A00E9AF64 /* RegistrationCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCredentials.swift; sourceTree = "<group>"; };
+		E8F6457D21CD397200E9AF64 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		E8F6457F21CD3A7B00E9AF64 /* LoginDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
+		E8F6458121CD3AC800E9AF64 /* RegistrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDelegate.swift; sourceTree = "<group>"; };
+		E8F6458621CD3F1D00E9AF64 /* AuthenticationUIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUIDelegate.swift; sourceTree = "<group>"; };
 		EC1290807D512FE4E6D9583A /* Pods-ios-apps-opdracht-6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-apps-opdracht-6.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-apps-opdracht-6/Pods-ios-apps-opdracht-6.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +130,8 @@
 				3F0DB21A21B919AB006A97D3 /* Member.swift */,
 				3F09D77F21C1002E006720A5 /* Article.swift */,
 				3F09D78121C100E9006720A5 /* Bid.swift */,
+				E8F6457821CD386300E9AF64 /* LoginCredentials.swift */,
+				E8F6457A21CD388A00E9AF64 /* RegistrationCredentials.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -137,11 +149,8 @@
 		3F0FA69321AFD61A0069FC2C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3F01A43621AE816B00EA3170 /* LoginViewController.swift */,
-				3F0FA69421AFDB1D0069FC2C /* RegistrationViewController.swift */,
-				3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */,
-				3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */,
-				3FEAF17021CB8A2A002EBB38 /* ArticleDetailViewController.swift */,
+				E8F6458421CD3B9800E9AF64 /* Articles */,
+				E8F6458321CD3B7400E9AF64 /* Authentication */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -149,8 +158,8 @@
 		3FE92C4A21B7CF0A007A9B20 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E8F6457C21CD396100E9AF64 /* Protocol */,
 				3FE92C4B21B7CF34007A9B20 /* FirebaseAuthenticationService.swift */,
-				E832FC9121B86B4E009C56A2 /* AuthenticationDelegate.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -204,6 +213,44 @@
 				E832FC8F21B8695D009C56A2 /* ValidationHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		E8F6457C21CD396100E9AF64 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E8F6457D21CD397200E9AF64 /* AuthenticationService.swift */,
+				E8F6457F21CD3A7B00E9AF64 /* LoginDelegate.swift */,
+				E8F6458121CD3AC800E9AF64 /* RegistrationDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		E8F6458321CD3B7400E9AF64 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E8F6458521CD3F0900E9AF64 /* Protocol */,
+				3FE92C4321B7C278007A9B20 /* AuthenticationRootViewController.swift */,
+				3F01A43621AE816B00EA3170 /* LoginViewController.swift */,
+				3F0FA69421AFDB1D0069FC2C /* RegistrationViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		E8F6458421CD3B9800E9AF64 /* Articles */ = {
+			isa = PBXGroup;
+			children = (
+				3F24EC9B21C1091200E8C7FC /* ArticleListTableViewController.swift */,
+				3FEAF17021CB8A2A002EBB38 /* ArticleDetailViewController.swift */,
+			);
+			path = Articles;
+			sourceTree = "<group>";
+		};
+		E8F6458521CD3F0900E9AF64 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E8F6458621CD3F1D00E9AF64 /* AuthenticationUIDelegate.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,19 +414,24 @@
 				3FE92C4C21B7CF34007A9B20 /* FirebaseAuthenticationService.swift in Sources */,
 				3FE92C4421B7C278007A9B20 /* AuthenticationRootViewController.swift in Sources */,
 				3FEAF17121CB8A2A002EBB38 /* ArticleDetailViewController.swift in Sources */,
+				E8F6458221CD3AC800E9AF64 /* RegistrationDelegate.swift in Sources */,
+				E8F6458021CD3A7B00E9AF64 /* LoginDelegate.swift in Sources */,
 				3F24EC9E21C10ABA00E8C7FC /* ArticleFirestoreDAO.swift in Sources */,
 				E867291421CAD13400ED1D62 /* UITableView.swift in Sources */,
 				3F24EC9C21C1091200E8C7FC /* ArticleListTableViewController.swift in Sources */,
+				E8F6457B21CD388A00E9AF64 /* RegistrationCredentials.swift in Sources */,
 				E84DAF2C21C54E6200451430 /* FirestoreStoreable.swift in Sources */,
 				3F01A43721AE816B00EA3170 /* LoginViewController.swift in Sources */,
 				E832FC9021B8695D009C56A2 /* ValidationHelper.swift in Sources */,
 				3F0DB21E21B91A36006A97D3 /* MemberFirestoreDAO.swift in Sources */,
 				E86B450721C9786200289E58 /* BidFirestoreDAO.swift in Sources */,
 				3F0DB21B21B919AB006A97D3 /* Member.swift in Sources */,
-				E832FC9221B86B4E009C56A2 /* AuthenticationDelegate.swift in Sources */,
 				3F09D78221C100E9006720A5 /* Bid.swift in Sources */,
+				E8F6457E21CD397200E9AF64 /* AuthenticationService.swift in Sources */,
 				3F01A43D21AE816B00EA3170 /* ios_apps_opdracht_6.xcdatamodeld in Sources */,
+				E8F6458721CD3F1D00E9AF64 /* AuthenticationUIDelegate.swift in Sources */,
 				E84DAF2521C541EC00451430 /* FirestoreExtractable.swift in Sources */,
+				E8F6457921CD386300E9AF64 /* LoginCredentials.swift in Sources */,
 				3F09D78021C1002E006720A5 /* Article.swift in Sources */,
 				3F01A43521AE816B00EA3170 /* AppDelegate.swift in Sources */,
 				3F0FA69521AFDB1D0069FC2C /* RegistrationViewController.swift in Sources */,

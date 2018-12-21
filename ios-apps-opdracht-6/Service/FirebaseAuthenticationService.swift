@@ -8,60 +8,51 @@
 import Foundation
 import Firebase
 
-struct LoginCredentials {
-    let email: String?
-    let password: String?
-}
+class FirebaseAuthenticationService: AuthenticationService {
 
-struct RegistrationCredentials {
-    let name: String?
-    let email: String?
-    let password: String?
-    let repeatPassword: String?
-    let birthDate: Date
-}
-
-class FirebaseAuthenticationService {
+    // MARK: Type aliases
     
     typealias ValidationResult = (isValid: Bool, error: String?)
     
+    // MARK: Instance variables
+    
     private lazy var memberFirestoreDAO: MemberFirestoreDAO = MemberFirestoreDAO()
     
-    init() {}
+    // MARK: Public functions
     
-    func login(withCredentials loginCredentials: LoginCredentials, endedDelegate delegate: LoginDelegate?) {
+    func loginAsync(WithCredentials loginCredentials: LoginCredentials, onFinished delegate: LoginDelegate?) {
         let validationResult: ValidationResult = validateLoginCredentials(loginCredentials)
         
         if !validationResult.isValid {
-            delegate?.onEnded(member: nil, error: validationResult.error!)
+            delegate?.onLoginEnded(member: nil, localizedError: validationResult.error!)
             return
         }
         
         Auth.auth().signIn(withEmail: loginCredentials.email!, password: loginCredentials.password!, completion: { (authenticationDataResult, error) in
             
             if error != nil {
-                delegate?.onEnded(member: nil, error: error!.localizedDescription)
+                delegate?.onLoginEnded(member: nil, localizedError: error!.localizedDescription)
                 return
             }
             
             self.memberFirestoreDAO.getAsync(WhereUID: authenticationDataResult!.user.uid, onFinished: { member, error in
                 
-                delegate?.onEnded(member: member, error: error)
+                delegate?.onLoginEnded(member: member, localizedError: error)
             })
         })
     }
     
-    func register(withCredentials registrationCredentials: RegistrationCredentials, endedDelegate delegate: RegistrationDelegate?) {
+    func registerAsync(WithCredentials registrationCredentials: RegistrationCredentials, onFinished delegate: RegistrationDelegate?) {
         let validationResult: ValidationResult = validateRegistrationCredentials(registrationCredentials)
         if !validationResult.isValid {
-            delegate?.onEnded(member: nil, error: validationResult.error!)
+            delegate?.onRegistrationEnded(member: nil, localizedError: validationResult.error!)
             return
         }
         
         Auth.auth().createUser(withEmail: registrationCredentials.email!, password: registrationCredentials.password!) { (authenticationDataResult, error) in
             
             if error != nil {
-                delegate?.onEnded(member: nil, error: error!.localizedDescription)
+                delegate?.onRegistrationEnded(member: nil, localizedError: error!.localizedDescription)
                 return
             }
             
@@ -69,14 +60,19 @@ class FirebaseAuthenticationService {
             
             let member = Member(id: String(), name: registrationCredentials.name!, birthday: registrationCredentials.birthDate, uid: user.uid)
             self.memberFirestoreDAO.createAsync(member, onFinished: {error in
-                print("Error adding extra credentials " + error!)
+                
+                if error != nil {
+                    print(error!)
+                }
                 
                 self.memberFirestoreDAO.getAsync(WhereUID: user.uid, onFinished: { member, error in
-                    delegate?.onEnded(member: member, error: error)
+                    delegate?.onRegistrationEnded(member: member, localizedError: error)
                 })
             })
         }
     }
+    
+    // MARK: Local helpers
     
     private func validateLoginCredentials(_ loginCredentials: LoginCredentials) -> ValidationResult {
         let emailValidationResult = ValidationHelper.validateRequiredText(loginCredentials.email, withLabel: "email")

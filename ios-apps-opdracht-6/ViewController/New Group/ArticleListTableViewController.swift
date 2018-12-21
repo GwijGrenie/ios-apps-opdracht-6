@@ -2,7 +2,6 @@
 //  ArticleListTableViewController.swift
 //  ios-apps-opdracht-6
 //
-//  Created by student on 12/12/2018.
 //  Copyright © 2018 VIVES. All rights reserved.
 //
 
@@ -15,18 +14,14 @@ class ArticleListTableViewController: UITableViewController {
     
     var currentMember: Member?
     
-    // MARK: Instance variables
-    
-    private var articles: [Article] = [Article]()
-    
     // MARK: Read-only properties
     
     private let articleFirestoreDAO: ArticleFirestoreDAO = ArticleFirestoreDAO()
     private let bidFirestoreDAO: BidFirestoreDAO = BidFirestoreDAO()
     
-    private lazy var articleSnapshotCallback: ArticleFirestoreDAO.SnapshotListenerCallback = { querySnapshot, error in
+    private lazy var articleSnapshotCallback: ArticleFirestoreDAO.SnapshotListenerCallback = { querySnapshot, localizedError in
         guard let querySnapshot = querySnapshot else {
-            print(error!)
+            print(localizedError!)
             return
         }
         
@@ -46,17 +41,11 @@ class ArticleListTableViewController: UITableViewController {
         })
     }
     
-    private lazy var bidGetAllCallback: BidFirestoreDAO.GetAllCallback = { article, bids, error in
-        
-    }
-    
-    private lazy var bidSnapshotCallback: BidFirestoreDAO.SnapshotListenerCallback = { article, querySnapshot, error in
+    private lazy var bidSnapshotCallback: BidFirestoreDAO.SnapshotListenerCallback = { article, querySnapshot, localizedError in
         guard let article = article, let querySnapshot = querySnapshot else {
-            print(error!)
+            print(localizedError!)
             return
         }
-        
-        print("---- RECEIVED BIDS FOR " + article.description)
         
         var bids: [Bid] = [Bid]()
         
@@ -71,6 +60,10 @@ class ArticleListTableViewController: UITableViewController {
         self.articles[indexOfArticle].bids = bids
         self.tableView.reloadData()
     }
+    
+    // MARK: Instance variables
+    
+    private var articles: [Article] = [Article]()
     
     // Deintializors
     
@@ -90,6 +83,7 @@ class ArticleListTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        articles = [Article]()
         articleFirestoreDAO.registerSnapshotListener(onSnapshot: articleSnapshotCallback)
     }
     
@@ -135,10 +129,9 @@ class ArticleListTableViewController: UITableViewController {
     // MARK: Local helpers
     
     private func addArticle(_ articleToAdd: Article) {
-        print("---- ADDING ARTICLE: " + articleToAdd.description)
-        bidFirestoreDAO.getAllAsync(ForArticle: articleToAdd, onFinished: { article, bids, error in
+        bidFirestoreDAO.getAllAsync(ForArticle: articleToAdd, onFinished: { article, bids, localizedError in
             guard var article = article, let bids = bids else {
-                print(error!)
+                print(localizedError!)
                 return
             }
     
@@ -151,13 +144,20 @@ class ArticleListTableViewController: UITableViewController {
         })
     }
     
+    private func removeArticle(_ articleToRemove: Article) {
+        articles.removeAll(where: { article in
+            return article.id == articleToRemove.id
+        })
+        bidFirestoreDAO.unregisterSnapshotListeners(ForArticle: articleToRemove)
+        tableView.reloadData()
+    }
+    
     private func updateArticle(_ articleToUpdate: Article) {
-        print("---- UPDATING ARTICLE: " + articleToUpdate.description)
         self.bidFirestoreDAO.unregisterSnapshotListeners(ForArticle: articleToUpdate)
         
-        bidFirestoreDAO.getAllAsync(ForArticle: articleToUpdate, onFinished: { article, bids, error in
+        bidFirestoreDAO.getAllAsync(ForArticle: articleToUpdate, onFinished: { article, bids, localizedError in
             guard var article = article, let bids = bids else {
-                print(error!)
+                print(localizedError!)
                 return
             }
             
@@ -171,14 +171,5 @@ class ArticleListTableViewController: UITableViewController {
             self.tableView.reloadRow(at: IndexPath(row: row, section: 0), with: .automatic)
             self.bidFirestoreDAO.registerSnapshotListener(ForArticle: article, onSnapshot: self.bidSnapshotCallback)
         })
-    }
-    
-    private func removeArticle(_ articleToRemove: Article) {
-        print("---- REMOVING ARTICLE: " + articleToRemove.description)
-        articles.removeAll(where: { article in
-            return article.id == articleToRemove.id
-        })
-        bidFirestoreDAO.unregisterSnapshotListeners(ForArticle: articleToRemove)
-        tableView.reloadData()
     }
 }

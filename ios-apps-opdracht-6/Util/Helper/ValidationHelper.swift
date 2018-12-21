@@ -9,9 +9,15 @@ import Foundation
 
 class ValidationHelper {
     
-    private init() {}
+    // MARK: Type aliases
     
     typealias ValidationResult = (isValid: Bool, error: String?)
+    
+    // MARK: Initialiazors
+    
+    private init() {}
+    
+    // MARK: Public functions
     
     static func validateRequiredText(_ text: String?, withLabel label: String) -> ValidationResult {
         guard let text = text else {

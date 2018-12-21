@@ -12,7 +12,7 @@ class ArticleFirestoreDAO {
     
     // MARK: Typealisases
     
-    typealias SnapshotListenerCallback = ((_ querySnapshot: QuerySnapshot?, _ error: String?) -> Void )
+    typealias SnapshotListenerCallback = ((_ querySnapshot: QuerySnapshot?, _ localizedError: String?) -> Void )
 
     // MARK: Read-only properties
     

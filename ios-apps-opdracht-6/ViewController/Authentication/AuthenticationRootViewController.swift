@@ -7,32 +7,7 @@
 
 import UIKit
 
-protocol AuthenticationUIDelegate {
-    func onLoginAuthenticated(member: Member)
-}
-
 class AuthentictationRootViewController: UIViewController {
-    
-    // MARK: IBActions
-    
-    @IBAction func onValueChangedNavigation(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            print("Login")
-            remove(asChildViewController: registerViewController)
-            add(asChildViewController: loginViewController)
-            break
-        case 1:
-            print("Register")
-            remove(asChildViewController: loginViewController)
-            add(asChildViewController: registerViewController)
-            break
-        default:
-            remove(asChildViewController: registerViewController)
-            add(asChildViewController: loginViewController)
-            break
-        }
-    }
     
     // MARK: Instance variables
     
@@ -46,12 +21,30 @@ class AuthentictationRootViewController: UIViewController {
         return viewController
     }()
     
-    private lazy var registerViewController: RegistrationViewController = {
+    private lazy var registrationViewController: RegistrationViewController = {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewController = storyboard.instantiateViewController(withIdentifier: "registerViewController") as! RegistrationViewController
         embeddedViewController.addChild(viewController)
         return viewController
     }()
+    
+    // MARK: IBActions
+    
+    @IBAction func onValueChangedNavigation(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            remove(AsChildViewController: registrationViewController)
+            add(AsChildViewController: loginViewController)
+            break
+        case 1:
+            remove(AsChildViewController: loginViewController)
+            add(AsChildViewController: registrationViewController)
+            break
+        default:
+            // Should not happen
+            break
+        }
+    }
     
     // MARK: Overrides
     
@@ -63,7 +56,7 @@ class AuthentictationRootViewController: UIViewController {
         switch segue.identifier {
         case "PresentAuthenticationContent":
             self.embeddedViewController = segue.destination
-            add(asChildViewController: loginViewController)
+            add(AsChildViewController: loginViewController)
             break
         case "PresentHome":
             let articleListTableViewController: ArticleListTableViewController = segue.destination as! ArticleListTableViewController
@@ -76,7 +69,7 @@ class AuthentictationRootViewController: UIViewController {
     
     // MARK: Local helpers
     
-    private func add(asChildViewController viewController: UIViewController) {
+    private func add(AsChildViewController viewController: UIViewController) {
         embeddedViewController.addChild(viewController)
         embeddedViewController.view.addSubview(viewController.view)
         viewController.view.frame = embeddedViewController.view.bounds
@@ -84,7 +77,7 @@ class AuthentictationRootViewController: UIViewController {
         viewController.didMove(toParent: embeddedViewController)
     }
     
-    private func remove(asChildViewController viewController: UIViewController) {
+    private func remove(AsChildViewController viewController: UIViewController) {
         
         viewController.willMove(toParent: nil)
         viewController.view.removeFromSuperview()
